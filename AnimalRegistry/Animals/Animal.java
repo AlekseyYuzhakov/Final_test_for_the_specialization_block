@@ -7,14 +7,12 @@ import java.util.Date;
 public class Animal {
 
   private String name;
-  private String type;
   private Date birthDate;
   private ArrayList<String> commands;
   private int counter = 0;
 
-  public Animal(String name, String type, Date birthDate, ArrayList<String> commands) {
+  public Animal(String name, Date birthDate, ArrayList<String> commands) {
     this.name = name;
-    this.type = type;
     this.birthDate = birthDate;
     this.commands = commands;
     counter++;
@@ -22,10 +20,6 @@ public class Animal {
 
   public String getName() {
     return name;
-  }
-
-  public String getType() {
-    return type;
   }
 
   public String getBirthDate() {
@@ -37,18 +31,31 @@ public class Animal {
   public String getCommands() {
     String allcommands = "";
     for (String string : commands) {
-      allcommands += string + ", ";
+      allcommands += string + ",";
     }
     return allcommands;
+  }
+
+  public void addCommands(String newCommands) {
+    this.commands.add(newCommands);
   }
 
   public int getCounter() {
     return counter;
   }
 
+  public String getStoregeInfo() {
+    return this.toString();
+  }
+  
+  
+  public boolean equals(Animal o) {
+    return this.name == o.name;
+  }
+
   @Override
   public String toString() {
-    return "Животное по имени " + name + ", вид " + type + ", дата рождения " + birthDate + ", умеет выполнять команды "
-        + commands.toString() + "]";
+    return name + "," + birthDate + "," + commands.toString();
   }
+
 }

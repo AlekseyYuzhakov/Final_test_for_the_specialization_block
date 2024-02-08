@@ -4,11 +4,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Pets extends Animal {
-  private int counter = 0;
 
-  public Pets(String name, String type, Date birthDate, ArrayList<String> commands) {
-    super(name, type, birthDate, commands);
+  private int counter = 0;
+  protected String type;
+
+  public Pets(String name, Date birthDate, ArrayList<String> commands) {
+    super(name, birthDate, commands);
+    this.type = "Домашнее животное";
     counter++;
+
+  }
+
+  public String getType() {
+    return type;
   }
 
   public int getCounter() {
@@ -16,8 +24,8 @@ public class Pets extends Animal {
   }
 
   @Override
-  public String toString() {
-    return "Домашние животное ";
+  public String getStoregeInfo() {
+    return this.toString();
   }
 
 }
